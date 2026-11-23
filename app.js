@@ -745,6 +745,40 @@ function playSuccessSound() {
   } catch (e) { /* 音频不可用时静默 */ }
 }
 
+/* 答错提示音：下行小调三音 + 低沉渐弱尾音，情绪"失落但不刺耳" */
+function playFailSound() {
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    const t0 = ctx.currentTime + 0.02;
+    // E5 -> C5 -> G4 下行，A小调色彩
+    [659.25, 523.25, 392.00].forEach((freq, i) => {
+      const start = t0 + i * 0.14;
+      const osc = ctx.createOscillator();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, start);
+      // 轻微下滑音，更有"叹气"感
+      osc.frequency.linearRampToValueAtTime(freq * 0.97, start + 0.26);
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(0.0001, start);
+      g.gain.exponentialRampToValueAtTime(0.16, start + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, start + 0.32);
+      osc.connect(g); g.connect(ctx.destination);
+      osc.start(start); osc.stop(start + 0.34);
+    });
+    // 结尾低音 G3，慢慢消失
+    const osc = ctx.createOscillator();
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(196.00, t0 + 0.42);
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, t0 + 0.42);
+    g.gain.exponentialRampToValueAtTime(0.13, t0 + 0.46);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + 1.0);
+    osc.connect(g); g.connect(ctx.destination);
+    osc.start(t0 + 0.42); osc.stop(t0 + 1.02);
+  } catch (e) { /* 音频不可用时静默 */ }
+}
+
 /* ================= 听写练习 ================= */
 function currentSentence() { return WORD_BANK[state.index]; }
 let lastAnswerCorrect = false;  // 当前题是否已答对（答对后回车进入下一题）
@@ -874,6 +908,7 @@ function checkAnswer() {
     state.history.unshift({ en: s.en, zh: s.zh, correct: true, time: Date.now() });
   } else {
     firstTryClean = false;
+    playFailSound();
     $("feedback").textContent = `还有 ${wrongCount} 个单词拼写有误，请检查标红的单词后重试。`;
     $("feedback").className = "feedback err shake";
     state.history = state.history.filter(h => h.en !== s.en);
