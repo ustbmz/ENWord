@@ -17,7 +17,7 @@
         </div>
         <div class="book-select" id="bookName" title="当前词库">
           <span class="book-dot"></span>
-          <span>生活通用口语 1100 句</span>
+          <span>生活口语 + 区块链精选</span>
           <span class="caret">▾</span>
         </div>
       </div>
@@ -104,12 +104,19 @@
             <div class="card-label">逐词复习 · 点击单词查看释义</div>
             <h2 class="review-title" id="reviewTitle">生活通用口语 · 核心词汇</h2>
           </div>
-          <div class="review-tabs">
-            <button class="chip-tab active" data-filter="all">全部</button>
-            <button class="chip-tab" data-filter="名词">名词</button>
-            <button class="chip-tab" data-filter="动词">动词</button>
-            <button class="chip-tab" data-filter="形容词">形容词</button>
-            <button class="chip-tab" data-filter="其他">其他</button>
+          <div class="review-filter-wrap">
+            <div class="review-tabs" id="topicTabs">
+              <button class="topic-tab active" data-topic="all">全部主题</button>
+              <button class="topic-tab" data-topic="生活">生活口语</button>
+              <button class="topic-tab" data-topic="区块链">区块链</button>
+            </div>
+            <div class="review-tabs">
+              <button class="chip-tab active" data-filter="all">全部词性</button>
+              <button class="chip-tab" data-filter="名词">名词</button>
+              <button class="chip-tab" data-filter="动词">动词</button>
+              <button class="chip-tab" data-filter="形容词">形容词</button>
+              <button class="chip-tab" data-filter="其他">其他</button>
+            </div>
           </div>
         </div>
         <div class="word-grid" id="wordGrid"></div>

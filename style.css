@@ -174,9 +174,12 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
 /* ===== 单词复习 ===== */
 .review-head-card { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
 .review-title { font-size: 20px; font-weight: 700; }
+.review-filter-wrap { display: flex; flex-direction: column; gap: 8px; }
 .review-tabs { display: flex; flex-wrap: wrap; gap: 7px; }
 .chip-tab { padding: 6px 13px; border-radius: 16px; font-size: 12px; color: var(--text-soft); background: #f1f5f9; }
 .chip-tab.active { background: var(--blue); color: #fff; }
+.topic-tab { padding: 6px 14px; border-radius: 16px; font-size: 12px; font-weight: 600; color: var(--text-soft); background: #f1f5f9; border: 1px solid transparent; }
+.topic-tab.active { background: #ede9fe; color: #6d28d9; border-color: #c4b5fd; }
 .word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin-bottom: 16px; }
 .word-card {
   background: #fff; border: 1px solid var(--line); border-radius: 12px;
@@ -199,6 +202,8 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
 .word-card .wc-pos.bg-副词 { background: #e0e7ff; color: #4338ca; }
 .word-card .wc-pos.bg-代词 { background: #f3e8ff; color: #7e22ce; }
 .word-card .wc-pos.bg-冠词 { background: #ede9fe; color: #6d28d9; }
+.word-card .wc-topic { margin-top: 10px; font-size: 10px; color: #9ca3af; }
+.word-card .wc-topic.topic-chain { color: #6d28d9; font-weight: 700; }
 .word-card.mastered::after {
   content: "✓ 已掌握"; position: absolute; bottom: 10px; right: 12px;
   font-size: 10px; color: var(--green); font-weight: 700;

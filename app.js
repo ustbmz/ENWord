@@ -2,6 +2,7 @@
    每句包含中文、英文原句，以及逐词词性/释义标注 */
 const WORD_BANK = [
   {
+    topic: "生活",
     zh: "我弟弟成天吃垃圾食品（带一点夸张语气）",
     en: "My brother survives on junk food.",
     words: [
@@ -14,6 +15,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "你能把消息转告给她吗？",
     en: "Could you pass the message along?",
     words: [
@@ -26,6 +28,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "她每天早上都去慢跑。",
     en: "She goes jogging every morning.",
     words: [
@@ -37,6 +40,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "别担心，我可以自己处理。",
     en: "Don't worry, I can handle it myself.",
     words: [
@@ -50,6 +54,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "这本书比那本书更有趣。",
     en: "This book is more interesting than that one.",
     words: [
@@ -64,6 +69,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "他昨天把钱包弄丢了。",
     en: "He lost his wallet yesterday.",
     words: [
@@ -75,6 +81,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "我们应该趁天亮前出发。",
     en: "We should leave before it gets dark.",
     words: [
@@ -88,6 +95,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "她把音乐开得很大声。",
     en: "She turned the music up loudly.",
     words: [
@@ -100,6 +108,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "我朋友总是让我笑个不停。",
     en: "My friend always makes me laugh.",
     words: [
@@ -112,6 +121,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "请在门口等我几分钟。",
     en: "Please wait for me at the door for a few minutes.",
     words: [
@@ -129,6 +139,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "我不知道该怎么解释这件事。",
     en: "I don't know how to explain this thing.",
     words: [
@@ -143,6 +154,7 @@ const WORD_BANK = [
     ]
   },
   {
+    topic: "生活",
     zh: "天气真好，我们出去走走吧。",
     en: "The weather is so nice, let's go for a walk.",
     words: [
@@ -157,6 +169,432 @@ const WORD_BANK = [
       { w: "a", pos: "冠词", mean: "一个" },
       { w: "walk", pos: "名词", mean: "散步" }
     ]
+  },
+  /* ---------- 更多生活口语 ---------- */
+  {
+    topic: "生活",
+    zh: "我通常早上七点起床。",
+    en: "I usually get up at seven in the morning.",
+    words: [
+      { w: "I", pos: "代词", mean: "我" },
+      { w: "usually", pos: "副词", mean: "通常" },
+      { w: "get", pos: "动词", mean: "起（get up 起床）" },
+      { w: "up", pos: "副词", mean: "向上" },
+      { w: "at", pos: "介词", mean: "在（时间点）" },
+      { w: "seven", pos: "数词", mean: "七" },
+      { w: "in", pos: "介词", mean: "在…内" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "morning", pos: "名词", mean: "早晨" }
+    ]
+  },
+  {
+    topic: "生活",
+    zh: "你能帮我处理这份报告吗？",
+    en: "Could you help me with this report?",
+    words: [
+      { w: "Could", pos: "动词", mean: "能（礼貌请求）" },
+      { w: "you", pos: "代词", mean: "你" },
+      { w: "help", pos: "动词", mean: "帮助" },
+      { w: "me", pos: "代词", mean: "我（宾格）" },
+      { w: "with", pos: "介词", mean: "在…方面" },
+      { w: "this", pos: "代词", mean: "这个" },
+      { w: "report", pos: "名词", mean: "报告" }
+    ]
+  },
+  {
+    topic: "生活",
+    zh: "火车八点三十分准时发车。",
+    en: "The train leaves at eight thirty sharp.",
+    words: [
+      { w: "The", pos: "冠词", mean: "定冠词" },
+      { w: "train", pos: "名词", mean: "火车" },
+      { w: "leaves", pos: "动词", mean: "离开；出发" },
+      { w: "at", pos: "介词", mean: "在" },
+      { w: "eight", pos: "数词", mean: "八" },
+      { w: "thirty", pos: "数词", mean: "三十" },
+      { w: "sharp", pos: "副词", mean: "准时地" }
+    ]
+  },
+  {
+    topic: "生活",
+    zh: "她正在花园里看书。",
+    en: "She is reading a book in the garden.",
+    words: [
+      { w: "She", pos: "代词", mean: "她" },
+      { w: "is", pos: "动词", mean: "是（be动词）" },
+      { w: "reading", pos: "动词", mean: "阅读" },
+      { w: "a", pos: "冠词", mean: "一个" },
+      { w: "book", pos: "名词", mean: "书" },
+      { w: "in", pos: "介词", mean: "在…里" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "garden", pos: "名词", mean: "花园" }
+    ]
+  },
+  {
+    topic: "生活",
+    zh: "昨晚我们点了披萨当晚餐。",
+    en: "We ordered pizza for dinner last night.",
+    words: [
+      { w: "We", pos: "代词", mean: "我们" },
+      { w: "ordered", pos: "动词", mean: "点（餐）；订购" },
+      { w: "pizza", pos: "名词", mean: "披萨" },
+      { w: "for", pos: "介词", mean: "作为" },
+      { w: "dinner", pos: "名词", mean: "晚餐" },
+      { w: "last", pos: "形容词", mean: "上一个的" },
+      { w: "night", pos: "名词", mean: "夜晚" }
+    ]
+  },
+  {
+    topic: "生活",
+    zh: "从今天早上起一直在下雨。",
+    en: "It has been raining since this morning.",
+    words: [
+      { w: "It", pos: "代词", mean: "它（指天气）" },
+      { w: "has", pos: "动词", mean: "已经（助动词）" },
+      { w: "been", pos: "动词", mean: "一直（be的过去分词）" },
+      { w: "raining", pos: "动词", mean: "下雨" },
+      { w: "since", pos: "介词", mean: "自从" },
+      { w: "this", pos: "代词", mean: "这个" },
+      { w: "morning", pos: "名词", mean: "早晨" }
+    ]
+  },
+  {
+    topic: "生活",
+    zh: "这咖啡尝起来有点太浓了。",
+    en: "This coffee tastes a little too strong.",
+    words: [
+      { w: "This", pos: "代词", mean: "这个" },
+      { w: "coffee", pos: "名词", mean: "咖啡" },
+      { w: "tastes", pos: "动词", mean: "尝起来" },
+      { w: "a", pos: "冠词", mean: "一个" },
+      { w: "little", pos: "副词", mean: "一点儿" },
+      { w: "too", pos: "副词", mean: "太" },
+      { w: "strong", pos: "形容词", mean: "浓的；强的" }
+    ]
+  },
+  {
+    topic: "生活",
+    zh: "离开前请关灯。",
+    en: "Please turn off the lights before you leave.",
+    words: [
+      { w: "Please", pos: "副词", mean: "请" },
+      { w: "turn", pos: "动词", mean: "转动（turn off 关闭）" },
+      { w: "off", pos: "副词", mean: "关闭" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "lights", pos: "名词", mean: "灯" },
+      { w: "before", pos: "介词", mean: "在…之前" },
+      { w: "you", pos: "代词", mean: "你" },
+      { w: "leave", pos: "动词", mean: "离开" }
+    ]
+  },
+  {
+    topic: "生活",
+    zh: "他在深圳做软件工程师。",
+    en: "He works as a software engineer in Shenzhen.",
+    words: [
+      { w: "He", pos: "代词", mean: "他" },
+      { w: "works", pos: "动词", mean: "工作" },
+      { w: "as", pos: "介词", mean: "作为" },
+      { w: "a", pos: "冠词", mean: "一个" },
+      { w: "software", pos: "名词", mean: "软件" },
+      { w: "engineer", pos: "名词", mean: "工程师" },
+      { w: "in", pos: "介词", mean: "在" },
+      { w: "Shenzhen", pos: "名词", mean: "深圳" }
+    ]
+  },
+  {
+    topic: "生活",
+    zh: "我很期待周末。",
+    en: "I am looking forward to the weekend.",
+    words: [
+      { w: "I", pos: "代词", mean: "我" },
+      { w: "am", pos: "动词", mean: "是（be动词）" },
+      { w: "looking", pos: "动词", mean: "看（look forward to 期待）" },
+      { w: "forward", pos: "副词", mean: "向前" },
+      { w: "to", pos: "介词", mean: "到" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "weekend", pos: "名词", mean: "周末" }
+    ]
+  },
+  /* ---------- 区块链专题 ---------- */
+  {
+    topic: "区块链",
+    zh: "区块链是一个记录每笔交易的分布式账本。",
+    en: "Blockchain is a distributed ledger that records every transaction.",
+    words: [
+      { w: "Blockchain", pos: "名词", mean: "区块链" },
+      { w: "is", pos: "动词", mean: "是" },
+      { w: "a", pos: "冠词", mean: "一个" },
+      { w: "distributed", pos: "形容词", mean: "分布式的" },
+      { w: "ledger", pos: "名词", mean: "账本" },
+      { w: "that", pos: "代词", mean: "引导定语从句" },
+      { w: "records", pos: "动词", mean: "记录" },
+      { w: "every", pos: "形容词", mean: "每一" },
+      { w: "transaction", pos: "名词", mean: "交易" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "比特币是第一个使用区块链技术的加密货币。",
+    en: "Bitcoin was the first cryptocurrency to use blockchain technology.",
+    words: [
+      { w: "Bitcoin", pos: "名词", mean: "比特币" },
+      { w: "was", pos: "动词", mean: "是（过去式）" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "first", pos: "形容词", mean: "第一个的" },
+      { w: "cryptocurrency", pos: "名词", mean: "加密货币" },
+      { w: "to", pos: "介词", mean: "不定式符号" },
+      { w: "use", pos: "动词", mean: "使用" },
+      { w: "blockchain", pos: "名词", mean: "区块链" },
+      { w: "technology", pos: "名词", mean: "技术" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "智能合约在以太坊网络上自动运行。",
+    en: "Smart contracts run automatically on the Ethereum network.",
+    words: [
+      { w: "Smart", pos: "形容词", mean: "智能的" },
+      { w: "contracts", pos: "名词", mean: "合约" },
+      { w: "run", pos: "动词", mean: "运行" },
+      { w: "automatically", pos: "副词", mean: "自动地" },
+      { w: "on", pos: "介词", mean: "在…上" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "Ethereum", pos: "名词", mean: "以太坊" },
+      { w: "network", pos: "名词", mean: "网络" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "每个区块都包含前一个区块的哈希值。",
+    en: "Each block contains a hash of the previous block.",
+    words: [
+      { w: "Each", pos: "形容词", mean: "每个" },
+      { w: "block", pos: "名词", mean: "区块" },
+      { w: "contains", pos: "动词", mean: "包含" },
+      { w: "a", pos: "冠词", mean: "一个" },
+      { w: "hash", pos: "名词", mean: "哈希值" },
+      { w: "of", pos: "介词", mean: "…的" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "previous", pos: "形容词", mean: "先前的" },
+      { w: "block", pos: "名词", mean: "区块" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "矿工验证交易并把新区块加到链上。",
+    en: "Miners validate transactions and add new blocks to the chain.",
+    words: [
+      { w: "Miners", pos: "名词", mean: "矿工" },
+      { w: "validate", pos: "动词", mean: "验证" },
+      { w: "transactions", pos: "名词", mean: "交易" },
+      { w: "and", pos: "连词", mean: "并且" },
+      { w: "add", pos: "动词", mean: "添加" },
+      { w: "new", pos: "形容词", mean: "新的" },
+      { w: "blocks", pos: "名词", mean: "区块" },
+      { w: "to", pos: "介词", mean: "到" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "chain", pos: "名词", mean: "链" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "你的私钥必须始终保密。",
+    en: "Your private key must be kept secret at all times.",
+    words: [
+      { w: "Your", pos: "代词", mean: "你的" },
+      { w: "private", pos: "形容词", mean: "私人的" },
+      { w: "key", pos: "名词", mean: "密钥" },
+      { w: "must", pos: "动词", mean: "必须" },
+      { w: "be", pos: "动词", mean: "被（被动语态）" },
+      { w: "kept", pos: "动词", mean: "保持（keep过去分词）" },
+      { w: "secret", pos: "形容词", mean: "秘密的" },
+      { w: "at", pos: "介词", mean: "在" },
+      { w: "all", pos: "形容词", mean: "所有的" },
+      { w: "times", pos: "名词", mean: "时候" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "永远不要在网上和任何人分享你的助记词。",
+    en: "Never share your seed phrase with anyone online.",
+    words: [
+      { w: "Never", pos: "副词", mean: "绝不" },
+      { w: "share", pos: "动词", mean: "分享" },
+      { w: "your", pos: "代词", mean: "你的" },
+      { w: "seed", pos: "名词", mean: "种子" },
+      { w: "phrase", pos: "名词", mean: "词组（seed phrase 助记词）" },
+      { w: "with", pos: "介词", mean: "和" },
+      { w: "anyone", pos: "代词", mean: "任何人" },
+      { w: "online", pos: "副词", mean: "在网上" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "去中心化金融让人们无需银行即可借贷。",
+    en: "Decentralized finance allows people to lend and borrow without banks.",
+    words: [
+      { w: "Decentralized", pos: "形容词", mean: "去中心化的" },
+      { w: "finance", pos: "名词", mean: "金融" },
+      { w: "allows", pos: "动词", mean: "允许" },
+      { w: "people", pos: "名词", mean: "人们" },
+      { w: "to", pos: "介词", mean: "不定式符号" },
+      { w: "lend", pos: "动词", mean: "借出" },
+      { w: "and", pos: "连词", mean: "和" },
+      { w: "borrow", pos: "动词", mean: "借入" },
+      { w: "without", pos: "介词", mean: "没有" },
+      { w: "banks", pos: "名词", mean: "银行" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "NFT 代表独特数字资产的所有权。",
+    en: "NFTs represent ownership of unique digital assets.",
+    words: [
+      { w: "NFTs", pos: "名词", mean: "非同质化代币" },
+      { w: "represent", pos: "动词", mean: "代表" },
+      { w: "ownership", pos: "名词", mean: "所有权" },
+      { w: "of", pos: "介词", mean: "…的" },
+      { w: "unique", pos: "形容词", mean: "独特的" },
+      { w: "digital", pos: "形容词", mean: "数字的" },
+      { w: "assets", pos: "名词", mean: "资产" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "网络拥堵时 gas 费用会变高。",
+    en: "Gas fees become high when the network is crowded.",
+    words: [
+      { w: "Gas", pos: "名词", mean: "gas 燃料费" },
+      { w: "fees", pos: "名词", mean: "费用" },
+      { w: "become", pos: "动词", mean: "变得" },
+      { w: "high", pos: "形容词", mean: "高的" },
+      { w: "when", pos: "连词", mean: "当…时" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "network", pos: "名词", mean: "网络" },
+      { w: "is", pos: "动词", mean: "是" },
+      { w: "crowded", pos: "形容词", mean: "拥挤的" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "共识机制帮助所有节点就同一状态达成一致。",
+    en: "A consensus mechanism helps all nodes agree on the same state.",
+    words: [
+      { w: "A", pos: "冠词", mean: "一个" },
+      { w: "consensus", pos: "名词", mean: "共识" },
+      { w: "mechanism", pos: "名词", mean: "机制" },
+      { w: "helps", pos: "动词", mean: "帮助" },
+      { w: "all", pos: "形容词", mean: "所有的" },
+      { w: "nodes", pos: "名词", mean: "节点" },
+      { w: "agree", pos: "动词", mean: "同意；达成一致" },
+      { w: "on", pos: "介词", mean: "在…上" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "same", pos: "形容词", mean: "相同的" },
+      { w: "state", pos: "名词", mean: "状态" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "这个代币有固定供应量。",
+    en: "The token has a fixed supply.",
+    words: [
+      { w: "The", pos: "冠词", mean: "定冠词" },
+      { w: "token", pos: "名词", mean: "代币" },
+      { w: "has", pos: "动词", mean: "有" },
+      { w: "a", pos: "冠词", mean: "一个" },
+      { w: "fixed", pos: "形容词", mean: "固定的" },
+      { w: "supply", pos: "名词", mean: "供应量" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "稳定币旨在保持其价值稳定。",
+    en: "Stablecoins are designed to keep their value steady.",
+    words: [
+      { w: "Stablecoins", pos: "名词", mean: "稳定币" },
+      { w: "are", pos: "动词", mean: "是" },
+      { w: "designed", pos: "动词", mean: "设计" },
+      { w: "to", pos: "介词", mean: "不定式符号" },
+      { w: "keep", pos: "动词", mean: "保持" },
+      { w: "their", pos: "代词", mean: "它们的" },
+      { w: "value", pos: "名词", mean: "价值" },
+      { w: "steady", pos: "形容词", mean: "稳定的" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "我把代币从交易所转到了冷钱包。",
+    en: "I moved my tokens from the exchange to a cold wallet.",
+    words: [
+      { w: "I", pos: "代词", mean: "我" },
+      { w: "moved", pos: "动词", mean: "转移" },
+      { w: "my", pos: "代词", mean: "我的" },
+      { w: "tokens", pos: "名词", mean: "代币" },
+      { w: "from", pos: "介词", mean: "从" },
+      { w: "the", pos: "冠词", mean: "定冠词" },
+      { w: "exchange", pos: "名词", mean: "交易所" },
+      { w: "to", pos: "介词", mean: "到" },
+      { w: "a", pos: "冠词", mean: "一个" },
+      { w: "cold", pos: "形容词", mean: "冷的（cold wallet 冷钱包）" },
+      { w: "wallet", pos: "名词", mean: "钱包" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "以太坊的价格今天下跌了百分之十。",
+    en: "The price of Ethereum dropped by ten percent today.",
+    words: [
+      { w: "The", pos: "冠词", mean: "定冠词" },
+      { w: "price", pos: "名词", mean: "价格" },
+      { w: "of", pos: "介词", mean: "…的" },
+      { w: "Ethereum", pos: "名词", mean: "以太坊" },
+      { w: "dropped", pos: "动词", mean: "下跌" },
+      { w: "by", pos: "介词", mean: "以…幅度" },
+      { w: "ten", pos: "数词", mean: "十" },
+      { w: "percent", pos: "名词", mean: "百分比" },
+      { w: "today", pos: "副词", mean: "今天" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "哈希函数把任意长度的数据转换成固定长度的字符串。",
+    en: "A hash function converts data of any length into a fixed-size string.",
+    words: [
+      { w: "A", pos: "冠词", mean: "一个" },
+      { w: "hash", pos: "名词", mean: "哈希" },
+      { w: "function", pos: "名词", mean: "函数" },
+      { w: "converts", pos: "动词", mean: "转换" },
+      { w: "data", pos: "名词", mean: "数据" },
+      { w: "of", pos: "介词", mean: "…的" },
+      { w: "any", pos: "形容词", mean: "任何" },
+      { w: "length", pos: "名词", mean: "长度" },
+      { w: "into", pos: "介词", mean: "成为" },
+      { w: "a", pos: "冠词", mean: "一个" },
+      { w: "fixed-size", pos: "形容词", mean: "固定大小的" },
+      { w: "string", pos: "名词", mean: "字符串" }
+    ]
+  },
+  {
+    topic: "区块链",
+    zh: "公钥可以分享，但私钥绝对不能泄露。",
+    en: "A public key can be shared, but a private key must never be revealed.",
+    words: [
+      { w: "A", pos: "冠词", mean: "一个" },
+      { w: "public", pos: "形容词", mean: "公开的" },
+      { w: "key", pos: "名词", mean: "密钥" },
+      { w: "can", pos: "动词", mean: "可以" },
+      { w: "be", pos: "动词", mean: "被" },
+      { w: "shared", pos: "动词", mean: "分享（过去分词）" },
+      { w: "but", pos: "连词", mean: "但是" },
+      { w: "a", pos: "冠词", mean: "一个" },
+      { w: "private", pos: "形容词", mean: "私人的" },
+      { w: "key", pos: "名词", mean: "密钥" },
+      { w: "must", pos: "动词", mean: "必须" },
+      { w: "never", pos: "副词", mean: "绝不" },
+      { w: "be", pos: "动词", mean: "被" },
+      { w: "revealed", pos: "动词", mean: "泄露（过去分词）" }
+    ]
   }
 ];
 
@@ -170,6 +608,7 @@ let state = {
   history: [],        // { en, zh, correct, time }
   mastered: {},       // { "单词|释义": true }
   filter: "all",
+  topic: "all",
   posShown: false,
   keySound: true,
   speak: { voiceURI: "", rate: 1.05, pitch: 1.0 }
@@ -487,13 +926,14 @@ function collectWords() {
   const map = new Map();
   WORD_BANK.forEach(s => s.words.forEach(item => {
     const key = item.w.toLowerCase() + "|" + item.mean;
-    if (!map.has(key)) map.set(key, { ...item, key, from: s.en, fromZh: s.zh });
+    if (!map.has(key)) map.set(key, { ...item, key, from: s.en, fromZh: s.zh, topic: s.topic || "生活" });
   }));
   return [...map.values()];
 }
 
 function renderReview() {
   let words = collectWords();
+  if (state.topic && state.topic !== "all") words = words.filter(w => w.topic === state.topic);
   if (state.filter !== "all") words = words.filter(w => w.pos === state.filter);
   const grid = $("wordGrid");
   grid.innerHTML = "";
@@ -504,6 +944,7 @@ function renderReview() {
       <span class="wc-pos bg-${w.pos}">${w.pos}</span>
       <div class="wc-word">${escapeHtml(w.w)}</div>
       <div class="wc-meaning">${escapeHtml(w.mean)}</div>
+      <div class="wc-topic ${w.topic === "区块链" ? "topic-chain" : ""}">${w.topic}</div>
     `;
     card.addEventListener("click", () => {
       state.mastered[w.key] = !state.mastered[w.key];
@@ -605,6 +1046,7 @@ function openSettings() {
 
   openModal(`
     <h3>⚙️ 发音设置</h3>
+    <p>当前词库：生活口语 + 区块链精选（${WORD_BANK.length} 句，${collectWords().length} 词）</p>
     <p>觉得发音别扭？在这里挑一个顺耳的英语音色，调好语速后记得点「保存设置」。</p>
     <div class="setting-row">
       <label>语音音色</label>
@@ -690,7 +1132,18 @@ function bindEvents() {
   });
   $("btnSpeak").addEventListener("click", () => speak(currentSentence().en));
 
-  // 复习筛选
+  // 主题筛选
+  document.querySelectorAll(".topic-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".topic-tab").forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      state.topic = tab.dataset.topic;
+      saveState();
+      renderReview();
+    });
+  });
+
+  // 词性筛选
   document.querySelectorAll(".chip-tab").forEach(chip => {
     chip.addEventListener("click", () => {
       document.querySelectorAll(".chip-tab").forEach(c => c.classList.remove("active"));
@@ -703,7 +1156,7 @@ function bindEvents() {
   // 统计清空
   $("btnClear").addEventListener("click", () => {
     if (!confirm("确定清空所有学习记录吗？此操作不可恢复。")) return;
-    state = { index: 0, hintCount: 0, answers: {}, checked: {}, history: [], mastered: {}, filter: "all", posShown: false, keySound: true, speak: { voiceURI: "", rate: 1.05, pitch: 1.0 } };
+    state = { index: 0, hintCount: 0, answers: {}, checked: {}, history: [], mastered: {}, filter: "all", topic: "all", posShown: false, keySound: true, speak: { voiceURI: "", rate: 1.05, pitch: 1.0 } };
     saveState();
     renderDictation();
     updateStatsPanel();
