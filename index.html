@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单词复习 · 听写练习</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- 顶部栏 -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="logo">
+          <span class="logo-icon">Aa</span>
+          <span class="logo-text">单词复习</span>
+        </div>
+        <div class="book-select" id="bookName" title="当前词库">
+          <span class="book-dot"></span>
+          <span>生活通用口语 1100 句</span>
+          <span class="caret">▾</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="progress-info">
+          <span class="progress-label">学习进度</span>
+          <span class="progress-pct" id="progressPct">0%</span>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" id="btnSpeTop" title="设置">
+            <svg viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.56V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 8.9 19.3a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.54 15a1.7 1.7 0 0 0-1.56-1.03H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.7 8.9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.54a1.7 1.7 0 0 0 1.03-1.56V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15.1 4.7a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.46 9c.14.6.66 1.03 1.27 1.03H21a2 2 0 1 1 0 4h-.09A1.7 1.7 0 0 0 19.4 15z"/></svg>
+          </button>
+          <button class="icon-btn" id="btnHelp" title="使用说明">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2-2.4 3.5"/><line x1="12" y1="17" x2="12" y2="17"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 进度条 -->
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+    <!-- 模式标签 -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="dictation">✍️ 听写练习</button>
+      <button class="tab" data-tab="review">📖 单词复习</button>
+      <button class="tab" data-tab="stats">📊 学习统计</button>
+    </nav>
+
+    <main class="main">
+      <!-- ============ 听写练习 ============ -->
+      <section class="panel active" id="panel-dictation">
+        <div class="card prompt-card">
+          <div class="card-label">请根据中文意思写出英文句子</div>
+          <div class="zh-sentence" id="zhSentence">加载中...</div>
+          <div class="sentence-meta">
+            <span class="tag-chip" id="sentenceIndex">第 1 / 1 句</span>
+            <button class="speak-btn" id="btnSpeak" title="朗读英文句子">
+              <svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+              听发音
+            </button>
+          </div>
+        </div>
+
+        <div class="card answer-card">
+          <div class="card-label">英文输入 <span class="hint-text">（每空格一个单词，空格/回车切换）</span></div>
+          <div class="word-inputs" id="wordInputs"></div>
+          <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- 彩色词性标注 -->
+        <div class="card pos-card">
+          <div class="card-head">
+            <div class="card-label">词性参考</div>
+            <button class="text-btn" id="btnTogglePos">显示答案 ▾</button>
+          </div>
+          <div class="pos-legend">
+            <span class="legend-item"><i class="legend-dot pos-冠词"></i>冠词</span>
+            <span class="legend-item"><i class="legend-dot pos-名词"></i>名词</span>
+            <span class="legend-item"><i class="legend-dot pos-动词"></i>动词</span>
+            <span class="legend-item"><i class="legend-dot pos-介词"></i>介词</span>
+            <span class="legend-item"><i class="legend-dot pos-形容词"></i>形容词</span>
+            <span class="legend-item"><i class="legend-dot pos-副词"></i>副词</span>
+            <span class="legend-item"><i class="legend-dot pos-代词"></i>代词</span>
+            <span class="legend-item"><i class="legend-dot pos-其他"></i>其他</span>
+          </div>
+          <div class="pos-sentence hidden" id="posSentence"></div>
+        </div>
+
+        <!-- 控制区 -->
+        <div class="controls">
+          <button class="btn btn-ghost" id="btnPrev">← 上一题</button>
+          <button class="btn btn-ghost" id="btnHint">💡 提示 <span id="hintCount">0/3</span></button>
+          <button class="btn btn-ghost" id="btnReset">↻ 重做</button>
+          <button class="btn btn-primary" id="btnCheck">✓ 确认答案</button>
+          <button class="btn btn-next" id="btnNext">下一题 →</button>
+        </div>
+      </section>
+
+      <!-- ============ 单词复习 ============ -->
+      <section class="panel" id="panel-review">
+        <div class="card review-head-card">
+          <div>
+            <div class="card-label">逐词复习 · 点击单词查看释义</div>
+            <h2 class="review-title" id="reviewTitle">生活通用口语 · 核心词汇</h2>
+          </div>
+          <div class="review-tabs">
+            <button class="chip-tab active" data-filter="all">全部</button>
+            <button class="chip-tab" data-filter="名词">名词</button>
+            <button class="chip-tab" data-filter="动词">动词</button>
+            <button class="chip-tab" data-filter="形容词">形容词</button>
+            <button class="chip-tab" data-filter="其他">其他</button>
+          </div>
+        </div>
+        <div class="word-grid" id="wordGrid"></div>
+        <div class="card review-sentence-card">
+          <div class="card-label">例句语境</div>
+          <div class="review-sentence" id="reviewSentence"></div>
+          <div class="review-translation" id="reviewTranslation"></div>
+        </div>
+      </section>
+
+      <!-- ============ 学习统计 ============ -->
+      <section class="panel" id="panel-stats">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">📚</div>
+            <div class="stat-num" id="statTotal">0</div>
+            <div class="stat-name">已学句子</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green">✓</div>
+            <div class="stat-num" id="statCorrect">0</div>
+            <div class="stat-name">答对句子</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange">📝</div>
+            <div class="stat-num" id="statWords">0</div>
+            <div class="stat-name">掌握单词</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon purple">🎯</div>
+            <div class="stat-num" id="statRate">0%</div>
+            <div class="stat-name">正确率</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-label">各题型掌握情况</div>
+          <div id="statsBars" class="stats-bars"></div>
+        </div>
+        <div class="card">
+          <div class="card-label">学习记录</div>
+          <div id="historyList" class="history-list"></div>
+        </div>
+        <button class="btn btn-danger-outline" id="btnClear">清空学习记录</button>
+      </section>
+    </main>
+
+    <!-- 底部状态栏 -->
+    <footer class="statusbar">
+      <div class="status-stats">
+        <span>总词数 <b id="footWords">0</b></span>
+        <span>总句数 <b id="footSentences">0</b></span>
+        <span>正确率 <b id="footRate">0%</b></span>
+      </div>
+      <div class="status-tip">按 <kbd>Enter</kbd> 确认答案 · 空格切换单词</div>
+    </footer>
+  </div>
+
+  <!-- 弹窗 -->
+  <div class="modal-mask hidden" id="modalMask">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
