@@ -132,6 +132,7 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
 .punctuation { font-size: 22px; font-weight: 700; color: var(--text); padding-bottom: 8px; }
 .feedback { min-height: 22px; margin-top: 12px; font-size: 13px; color: var(--text-soft); }
 .feedback.ok { color: #15803d; font-weight: 600; }
+.feedback.ok.perfect { color: #b45309; font-weight: 700; font-size: 14px; }
 .feedback.err { color: #b91c1c; }
 
 /* 词性标注 */

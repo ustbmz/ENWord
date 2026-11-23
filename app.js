@@ -699,9 +699,56 @@ function playKeySound(type = "press") {
   } catch (e) { /* 音频不可用时静默 */ }
 }
 
+/* 一次性答对庆祝音：上行琶音 + 高八度闪音 + 结尾和弦 */
+function playSuccessSound() {
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    const t0 = ctx.currentTime + 0.02;
+    // C5 - E5 - G5 - C6 快速上行
+    [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+      const start = t0 + i * 0.09;
+      const osc = ctx.createOscillator();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(freq, start);
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(0.0001, start);
+      g.gain.exponentialRampToValueAtTime(0.20, start + 0.014);
+      g.gain.exponentialRampToValueAtTime(0.0001, start + 0.36);
+      osc.connect(g); g.connect(ctx.destination);
+      osc.start(start); osc.stop(start + 0.38);
+
+      // 高八度正弦泛音，增加"叮"的闪亮感
+      const shine = ctx.createOscillator();
+      shine.type = "sine";
+      shine.frequency.setValueAtTime(freq * 2, start);
+      const gs = ctx.createGain();
+      gs.gain.setValueAtTime(0.0001, start);
+      gs.gain.exponentialRampToValueAtTime(0.055, start + 0.01);
+      gs.gain.exponentialRampToValueAtTime(0.0001, start + 0.2);
+      shine.connect(gs); gs.connect(ctx.destination);
+      shine.start(start); shine.stop(start + 0.22);
+    });
+    // 结尾大三和弦，营造"完成"感
+    const chordStart = t0 + 0.36;
+    [523.25, 659.25, 783.99].forEach(freq => {
+      const osc = ctx.createOscillator();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, chordStart);
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(0.0001, chordStart);
+      g.gain.exponentialRampToValueAtTime(0.10, chordStart + 0.03);
+      g.gain.exponentialRampToValueAtTime(0.0001, chordStart + 0.65);
+      osc.connect(g); g.connect(ctx.destination);
+      osc.start(chordStart); osc.stop(chordStart + 0.68);
+    });
+  } catch (e) { /* 音频不可用时静默 */ }
+}
+
 /* ================= 听写练习 ================= */
 function currentSentence() { return WORD_BANK[state.index]; }
 let lastAnswerCorrect = false;  // 当前题是否已答对（答对后回车进入下一题）
+let firstTryClean = true;       // 本题是否首次尝试（未失败校验、未用提示）
 
 function renderDictation() {
   const s = currentSentence();
@@ -758,6 +805,8 @@ function renderDictation() {
   $("feedback").className = "feedback";
   const savedCheck = state.checked[state.index];
   lastAnswerCorrect = Array.isArray(savedCheck) && savedCheck.length === s.words.length && savedCheck.every(Boolean);
+  // 曾失败校验或用提示则不视为首次尝试
+  firstTryClean = !lastAnswerCorrect && !(Array.isArray(savedCheck) && savedCheck.some(r => !r)) && !state.hintCount;
   if (lastAnswerCorrect) $("feedback").textContent = "✓ 本题已答对，按回车进入下一题。";
 
   // 词性答案
@@ -805,16 +854,26 @@ function checkAnswer() {
   const wrongCount = results.filter(r => !r).length;
 
   if (allCorrect) {
+    const perfect = firstTryClean;
     lastAnswerCorrect = true;
-    $("feedback").textContent = "🎉 完全正确！太棒了！按回车进入下一题。";
-    $("feedback").className = "feedback ok pop";
+    firstTryClean = false;
+    if (perfect) {
+      playSuccessSound();
+      $("feedback").textContent = "🏆 一次答对！完美！按回车进入下一题。";
+      $("feedback").className = "feedback ok pop perfect";
+      toast("一次答对 🏆 太强了！");
+    } else {
+      $("feedback").textContent = "🎉 完全正确！太棒了！按回车进入下一题。";
+      $("feedback").className = "feedback ok pop";
+      toast("回答正确 ✓");
+    }
     // 记录掌握单词
     s.words.forEach(item => { state.mastered[item.w + "|" + item.mean] = true; });
     // 历史记录去重（同句仅保留最新）
     state.history = state.history.filter(h => h.en !== s.en);
     state.history.unshift({ en: s.en, zh: s.zh, correct: true, time: Date.now() });
-    toast("回答正确 ✓");
   } else {
+    firstTryClean = false;
     $("feedback").textContent = `还有 ${wrongCount} 个单词拼写有误，请检查标红的单词后重试。`;
     $("feedback").className = "feedback err shake";
     state.history = state.history.filter(h => h.en !== s.en);
@@ -844,6 +903,7 @@ function showHint() {
   if (!state.answers[state.index]) state.answers[state.index] = [];
   state.answers[state.index][target] = revealed;
   state.hintCount++;
+  firstTryClean = false;
   $("hintCount").textContent = `${state.hintCount}/3`;
   $("btnHint").disabled = state.hintCount >= 3;
   $("feedback").textContent = `已提示第 ${target + 1} 个单词：完整答案为「${word}」（${s.words[target].mean}）`;
